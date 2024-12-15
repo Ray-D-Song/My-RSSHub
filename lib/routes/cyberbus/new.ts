@@ -37,7 +37,9 @@ async function handler() {
         .toArray()
         .map((item) => {
             const title = $(item).find('.post-title').find('h1').text();
-            const link = $(item).find(String.raw`.text-neutral-content.visited\:text-neutral-content-weak`).attr('href');
+            const link = $(item)
+                .find(String.raw`.text-neutral-content.visited\:text-neutral-content-weak`)
+                .attr('href');
             const pubDate = parseRelativeDate($(item).find('.moment-time.pointer.unselectable').text());
 
             const mainContent = $(item).find('article');
